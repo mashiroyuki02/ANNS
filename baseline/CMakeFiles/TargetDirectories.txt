@@ -1,3 +1,0 @@
-/mnt/h/baoyan/SIGMOD/src/baseline/CMakeFiles/knng.dir
-/mnt/h/baoyan/SIGMOD/src/baseline/CMakeFiles/edit_cache.dir
-/mnt/h/baoyan/SIGMOD/src/baseline/CMakeFiles/rebuild_cache.dir
