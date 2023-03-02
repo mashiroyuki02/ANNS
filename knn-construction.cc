@@ -144,7 +144,7 @@ void ConstructKnng(const vector<vector<float>> &data,
 
 int main(int argc, char **argv) {
   timeALL(0);
-  string source_path = "dummy-data.bin", labels_path = "groundTruth1w.bin";
+  string source_path = "dummy-data.bin", labels_path = "groundTruth.bin";
 
   // Also accept other path for source data
   if (argc > 1) {
@@ -155,6 +155,8 @@ int main(int argc, char **argv) {
   vector<vector<float>> nodes;
   ReadBin(source_path, nodes);
   // nodes.resize(100000);
+
+  NNodes = nodes.size();
 
   // Sample points for greedy search
   std::default_random_engine rd;
@@ -191,7 +193,7 @@ int main(int argc, char **argv) {
 #endif
 /// HyRec Method
 #ifdef HyRec
-  ConstructANNHyrec(nodes,knng,100,true);
+  ConstructANNHyrec(nodes,knng,100,false);
 #endif
 
 // check format
@@ -203,9 +205,11 @@ int main(int argc, char **argv) {
   }
 
 // evaluation
+#ifndef ONLINE_JUDGE
   ReadGroundTruth(labels_path, gt);
   cout<< "Recall: " << Recall(knng,gt)*100 << "%" <<endl;
-  // Save to ouput.bin
+#endif
+// Save to ouput.bin
   SaveKNNG(knng);
   timeALL(1);
   return 0;
