@@ -1,0 +1,1 @@
+/usr/bin/c++  -fopenmp -O2 -g CMakeFiles/knng.dir/HyRec.cpp.o CMakeFiles/knng.dir/kdtree.cc.o CMakeFiles/knng.dir/knn-construction.cc.o CMakeFiles/knng.dir/utils.cpp.o -o knng  -lmkl_rt 
